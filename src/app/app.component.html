@@ -1,73 +1,45 @@
 <div class="container-fluid">
-  <div class="row flex-nowrap">
-    <div class="col-auto bg-dark">
-      <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-        <a href="/" class="align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-          <span class="fs-3 d-none d-sm-inline">ListUp!</span>
+  <div class="row flex-nowrap min-vh-100">
+    <div class="col-auto bg-black">
+      <div class="d-flex flex-column align-items-center">
+        <a href="/" class="pb-3 text-decoration-none">
+          <img class="d-sm-none" src="assets/listup.png" height="30" width="30" alt="">
+          <span class="fs-1 ms-3 d-none d-sm-flex text-white">ListUp!</span>
         </a>
-        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start " id="menu">
-          <li class="nav-item">
-            <a href="#" class="nav-link align-middle px-0">
-              <fa-icon [icon]="faHome"></fa-icon> <span class="ms-1 d-none d-sm-inline">Home</span>
-            </a>
+        <ul class="nav nav-pills flex-column align-items-start align-items-sm-center">
+          <li>
+            <a href="/login" class="nav-link px-0" *ngIf="!isLoggedIn">
+              <fa-icon [icon]="faUser" size="lg"></fa-icon><span class="fs-3 ms-1 d-none d-sm-inline">Zaloguj</span> </a>
           </li>
           <li>
-            <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-              <i class="fs-3 bi bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
-            <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-              <li class="w-100">
-                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1 </a>
-              </li>
-              <li>
-                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2 </a>
-              </li>
-            </ul>
+            <a href="/register" class="nav-link px-0" *ngIf="!isLoggedIn">
+              <fa-icon [icon]="faUserPlus" size="lg"></fa-icon> <span class="fs-3 ms-1 d-none d-sm-inline">Zarejestruj</span></a>
           </li>
           <li>
-            <a href="#" class="nav-link px-0 align-middle">
-              <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Orders</span></a>
+            <a href="/groups" class="nav-link px-0" *ngIf="isLoggedIn">
+              <fa-icon [icon]="faUsers" size="lg"></fa-icon><span class="fs-3 ms-1 d-none d-sm-inline">Grupy</span> </a>
           </li>
           <li>
-            <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-              <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Bootstrap</span></a>
-            <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-              <li class="w-100">
-                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1</a>
-              </li>
-              <li>
-                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2</a>
-              </li>
-            </ul>
+            <a href="/owned_groups" class="nav-link px-0" *ngIf="isLoggedIn">
+              <fa-icon [icon]="faUserTie" size="lg"></fa-icon><span class="fs-3 ms-1 d-none d-sm-inline">Moje grupy</span> </a>
           </li>
           <li>
-            <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-              <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Products</span> </a>
-            <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-              <li class="w-100">
-                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>
-              </li>
-              <li>
-                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>
-              </li>
-              <li>
-                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>
-              </li>
-              <li>
-                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
-              </li>
-            </ul>
+            <a href="/my_tasks" class="nav-link px-0" *ngIf="isLoggedIn">
+              <fa-icon [icon]="faList" size="lg"></fa-icon><span class="fs-3 ms-1 d-none d-sm-inline">Zadania</span> </a>
           </li>
           <li>
-            <a href="#" class="nav-link px-0 align-middle">
-              <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Customers</span> </a>
+            <a href="/settings" class="nav-link px-0" *ngIf="isLoggedIn">
+              <fa-icon [icon]="faCogs" size="lg"></fa-icon> <span class="fs-3 ms-1 d-none d-sm-inline">Ustawienia</span></a>
+          </li>
+          <li>
+            <a href="#" (click)="logout()" class="nav-link px-0" *ngIf="isLoggedIn">
+              <fa-icon [icon]="faUsers" size="lg"></fa-icon><span class="fs-3 ms-1 d-none d-sm-inline">Wyloguj</span> </a>
           </li>
         </ul>
       </div>
     </div>
-    <div class="col py-3">
+    <div class="col px-3">
       <router-outlet></router-outlet>
     </div>
   </div>
 </div>
-
-

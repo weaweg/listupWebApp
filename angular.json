@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "bbudzowski-web": {
+    "listupWebApp": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/bbudzowski-web",
+            "outputPath": "dist/listupWebApp",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,20 +67,24 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "listupWebApp:build",
+            "proxyConfig": "proxy.conf.json"
+          },
           "configurations": {
             "production": {
-              "browserTarget": "bbudzowski-web:build:production"
+              "browserTarget": "listupWebApp:build:production"
             },
             "development": {
-              "browserTarget": "bbudzowski-web:build:development"
+              "browserTarget": "listupWebApp:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "bbudzowski-web:build"
+            "browserTarget": "listupWebApp:build"
           }
         },
         "test": {
@@ -103,5 +107,5 @@
       }
     }
   },
-  "defaultProject": "bbudzowski-web"
+  "defaultProject": "listupWebApp"
 }

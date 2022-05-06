@@ -1,31 +1,30 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ProductListComponent } from './product-list/product-list.component';
-import { ProductService } from './services/product.service';
-import { ProductEditComponent } from './product-edit/product-edit.component';
-import { FormsModule } from '@angular/forms';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { MainScreenComponent } from './main-screen/main-screen.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { HomeComponent } from './home/home.component';
+import { HttpClientModule } from "@angular/common/http";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductListComponent,
-    ProductEditComponent,
-    MainScreenComponent
+    LoginComponent,
+    RegisterComponent,
+    HomeComponent,
   ],
   imports: [
-    FormsModule,
     BrowserModule,
     AppRoutingModule,
-    NgbModule,
-    FontAwesomeModule,
+    FormsModule,
+    HttpClientModule,
+    FontAwesomeModule
   ],
-  providers: [ProductService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

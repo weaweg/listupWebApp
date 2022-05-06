@@ -1,14 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProductEditComponent } from './product-edit/product-edit.component';
-import { ProductListComponent } from './product-list/product-list.component';
-import {MainScreenComponent} from "./main-screen/main-screen.component";
+
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import {AuthGuard} from "./_helpers/app.guard";
 
 const routes: Routes = [
-  {path: '', component: MainScreenComponent},
-  {path: 'edit/:id', component: ProductEditComponent},
-  {path: 'add', component: ProductEditComponent},
-  {path: '**', redirectTo: '', pathMatch: 'full'}
+  { path: '', component: HomeComponent,
+    canActivate: [AuthGuard],
+    children: []},
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({
