@@ -8,6 +8,11 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from "@angular/common/http";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { GroupsComponent } from './groups/groups.component';
+import { ListsComponent } from './lists/lists.component';
+import { TasksComponent } from './tasks/tasks.component';
+import { OwnedGroupsComponent } from './owned-groups/owned-groups.component';
+import { MyTasksComponent } from './my-tasks/my-tasks.component';
 
 
 @NgModule({
@@ -16,6 +21,11 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
     LoginComponent,
     RegisterComponent,
     HomeComponent,
+    GroupsComponent,
+    ListsComponent,
+    TasksComponent,
+    OwnedGroupsComponent,
+    MyTasksComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { UserStorageService} from "./_services/user-storage.service";
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { faUsers } from '@fortawesome/free-solid-svg-icons'
 import { faUserTie } from '@fortawesome/free-solid-svg-icons'
 import { faList } from '@fortawesome/free-solid-svg-icons'
 import { faCogs } from '@fortawesome/free-solid-svg-icons'
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons'
+import {AuthService} from "./_services/auth.service";
 
 @Component({
   selector: 'app-root',
@@ -21,21 +21,16 @@ export class AppComponent {
   faCogs = faCogs
 
   isLoggedIn = false;
-  username?: string;
+  name?: string;
 
-  constructor(private userStorage: UserStorageService) {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
-    this.isLoggedIn = this.userStorage.isLoggedIn;
-
-    if (this.isLoggedIn) {
-      const user = this.userStorage.getUser();
-      this.username = user.name;
-    }
+    this.isLoggedIn = this.authService.isLoggedIn;
   }
 
   logout(): void {
-    this.userStorage.signOut();
+    this.authService.logout();
     window.location.reload();
   }
 }
