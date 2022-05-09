@@ -1,0 +1,6 @@
+tr:hover td{
+  background-color:#ffffff;
+}
+td {
+  cursor: default
+}

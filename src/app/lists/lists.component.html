@@ -8,7 +8,7 @@
   </thead>
   <tbody>
   <tr *ngFor="let list of lists" [routerLink]="['/tasks', list.list_id]">
-    <th scope="row">{{list.list_id}}</th>
+    <td>{{list.list_id}}</td>
     <td>{{list.name}}</td>
     <td>{{list.group?.name}}</td>
   </tr>
