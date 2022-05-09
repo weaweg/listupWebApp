@@ -1,1 +1,21 @@
-<p>my-tasks works!</p>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Identyfikator</th>
+    <th scope="col">Opis zadania</th>
+    <th scope="col">Lista nadrzędna</th>
+    <th scope="col">Użytkownik wykonujący</th>
+    <th scope="col">Status</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let task of tasks">
+    <th scope="row">{{task.task_id}}</th>
+    <td>{{task.description}}</td>
+    <td>{{task.list?.name}}</td>
+    <td>{{task.user?.name}}</td>
+    <td *ngIf="task.status;else content">Wykonane</td>
+    <ng-template #content><td>W trakcie</td></ng-template>
+  </tr>
+  </tbody>
+</table>

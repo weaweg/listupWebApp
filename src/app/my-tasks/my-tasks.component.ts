@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
+import { Task } from "../_models/task.model"
+import { ApiService } from "../_services/api.service"
 
 @Component({
   selector: 'app-my-tasks',
@@ -6,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-tasks.component.css']
 })
 export class MyTasksComponent implements OnInit {
+  tasks?: Array<Task>
 
-  constructor() { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
+    this.apiService.getUserTasks().subscribe({
+      next: data => {
+        this.tasks = data
+      },
+      error: err => {
+        console.log(err)
+      }
+    })
   }
-
 }

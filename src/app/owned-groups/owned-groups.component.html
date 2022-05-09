@@ -1,1 +1,16 @@
-<p>owned-groups works!</p>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Identyfikator</th>
+    <th scope="col">Nazwa grupy</th>
+    <th scope="col">Właściciel grupy</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let group of owned" [routerLink]="['/lists', group.group_id]">
+    <th scope="row">{{group.group_id}}</th>
+    <td>{{group.name}}</td>
+    <td>{{group.owner?.name}}</td>
+  </tr>
+  </tbody>
+</table>

@@ -1,1 +1,16 @@
-<p>lists works!</p>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Identyfikator</th>
+    <th scope="col">Nazwa listy</th>
+    <th scope="col">Grupa nadrzędna</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let list of lists" [routerLink]="['/tasks', list.list_id]">
+    <th scope="row">{{list.list_id}}</th>
+    <td>{{list.name}}</td>
+    <td>{{list.group?.name}}</td>
+  </tr>
+  </tbody>
+</table>

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {ApiService} from "../_services/api.service";
-import {Group} from "../_models/group.model";
+import { Component, OnInit } from '@angular/core'
+import {ApiService} from "../_services/api.service"
+import {Group} from "../_models/group.model"
+
 
 @Component({
   selector: 'app-groups',
@@ -8,14 +9,13 @@ import {Group} from "../_models/group.model";
   styleUrls: ['./groups.component.css']
 })
 export class GroupsComponent implements OnInit {
-  groups?: Group[]
+  groups?: Array<Group>
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
     this.apiService.getUserGroups().subscribe( {
       next: data => {
-        console.log(data)
         this.groups = data
       },
       error: err => {
@@ -23,5 +23,4 @@ export class GroupsComponent implements OnInit {
       }
     })
   }
-
 }
